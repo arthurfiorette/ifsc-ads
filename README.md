@@ -4,11 +4,15 @@
 
 <br />
 
+### Arthur Fiorette
+
+<br />
+
 This is a personal repository containing all exercises done during the systems
 analysis and development graduation at the **Federal Institute of Santa Catarina**
 (_IFSC_), **Gaspar**.
 
-For any future updates, submit a PR on our github, send a email to me@arthur.place
+For any future updates, submit a PR on our github, send a email to _me <at> arthur.place_
 or contact me elsewhere.
 
 - [Github](https://github.com/arthurfiorette/ifsc-ads)
