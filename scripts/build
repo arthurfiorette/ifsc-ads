@@ -1,3 +1,5 @@
+#/bin/bash sh
+
 FILES=$(find . -type f -regex '.*/.*\.\(c\)$')
 
 for f in $FILES; do

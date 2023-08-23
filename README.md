@@ -24,10 +24,10 @@ or contact me elsewhere.
 
 ```sh
 # Make our build script executable
-chmod +x build-all.sh
+chmod +x scripts/build
 
 # Build all files
-./build-all.sh
+./scripts/build
 
 # Run your chosen (.o) file!
 ./programacao-estruturada/funcoes/ex1.o
