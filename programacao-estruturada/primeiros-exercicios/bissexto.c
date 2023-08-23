@@ -6,12 +6,12 @@
 int main(void)
 {
 
-  char name[100];
+  char *name;
   int birth;
   int year;
 
   printf("\nnome:  \n");
-  scanf("%s", &name);
+  scanf("%s", name);
 
   printf("\nAno de nascimento: \n");
   scanf("%d", &birth);

@@ -19,3 +19,16 @@ or contact me elsewhere.
 - [Hosted site](https://arthurfiorette.github.io/ifsc-ads)
 - [License (GPL-3.0)](https://arthurfiorette.github.io/ifsc-ads/LICENSE)
 - [IFES](https://www.ifsc.edu.br/web/campus-gaspar)
+
+### Running
+
+```sh
+# Make our build script executable
+chmod +x build-all.sh
+
+# Build all files
+./build-all.sh
+
+# Run your chosen (.o) file!
+./programacao-estruturada/funcoes/ex1.o
+```
