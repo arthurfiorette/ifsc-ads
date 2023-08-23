@@ -1,13 +1,3 @@
-// Criar um programa que vai calcular a área de figuras geométricas diferentes (retângulo,
-// triângulo e círculo).
-// Enquanto não for escolhido “Fim”:
-// > Solicitar na tela a opção do usuário para qual figura calcular;
-// > Uma Função vai solicitar na tela, UMA medida da figura de cada vez, e retorná-la
-// (passar para a função o texto que vai ser exibido Ex: “Informe o tamanho do lado:” );
-// > Uma Função vai receber as medidas da figura, calcular e retornar a área;
-// > Uma Função vai receber o texto e a área calculada, e exibir na tela (Ex: “A área do
-// triângulo eh:” )
-
 #include <stdio.h>
 
 float AreaTriangulo(float base, float altura)

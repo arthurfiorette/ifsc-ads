@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 
 float Consumo(float distancia, float litros)
