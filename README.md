@@ -12,7 +12,7 @@ This is a personal repository containing all exercises done during the systems
 analysis and development graduation at the **Federal Institute of Santa Catarina**
 (_IFSC_), **Gaspar**.
 
-For any future updates, submit a PR on our github, send a email to _me <at> arthur.place_
+For any future updates, submit a PR on our github, send a email to `me <at> arthur.place`
 or contact me elsewhere.
 
 - [Github](https://github.com/arthurfiorette/ifsc-ads)
