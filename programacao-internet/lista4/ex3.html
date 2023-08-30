@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex3</title>
+
+    <style>
+      .box {
+        position: absolute;
+        font-size: 30px;
+        text-align: center;
+        height: 200px;
+        width: 250px;
+        border-radius: 50%;
+        background-image: radial-gradient(circle, red, white);
+        box-shadow: 0 0 2rem 0 black;
+      }
+
+      /* Crie elementos absolutos no topo direito, esquerto, meio, em baixo na direita e na esquerda  */
+      #box1 {
+        top: 0;
+        left: 0;
+      }
+
+      #box2 {
+        top: 0;
+        right: 0;
+      }
+
+      #box3 {
+        bottom: 0;
+        left: 0;
+      }
+
+      #box4 {
+        bottom: 0;
+        right: 0;
+      }
+
+      #box5 {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+
+      #box5:hover {
+        background-image: radial-gradient(circle, green, white);
+        transform: scale(1.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box1">1</div>
+    <div class="box" id="box2">2</div>
+    <div class="box" id="box5">5</div>
+    <div class="box" id="box4">4</div>
+    <div class="box" id="box3">3</div>
+    <a style="bottom: 0; position: absolute" href="index.html">Voltar</a>
+  </body>
+</html>

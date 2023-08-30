@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex2</title>
+
+    <style>
+      body > div {
+        position: absolute;
+        font-size: 30px;
+        text-align: center;
+        height: 250px;
+        width: 250px;
+      }
+
+      /* Crie elementos absolutos no topo direito, esquerto, meio, em baixo na direita e na esquerda  */
+      .top-right {
+        top: 0;
+        right: 0;
+        background-color: purple;
+      }
+
+      .top-left {
+        top: 0;
+        left: 0;
+        background-color: red;
+      }
+
+      .middle {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: grey;
+      }
+
+      .bottom-right {
+        bottom: 0;
+        right: 0;
+        background-color: green;
+      }
+
+      .bottom-left {
+        bottom: 0;
+        left: 0;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-right">Direita em cima</div>
+    <div class="top-left">Esquerda em cima</div>
+    <div class="middle">Centro</div>
+    <div class="bottom-right">Direita em baixo</div>
+    <div class="bottom-left">Esquerda em baixo</div>
+    <a style="bottom: 0; position: absolute" href="index.html">Voltar</a>
+  </body>
+</html>

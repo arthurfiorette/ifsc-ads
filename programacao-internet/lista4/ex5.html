@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .chat_content {
+        border-radius: 1rem;
+        border: 1px solid grey;
+        padding: 1rem;
+        max-width: 512px;
+      }
+
+      .mensagem {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        border-radius: 1rem;
+        border: 1px solid grey;
+        padding: 1rem;
+      }
+
+      .mensagem_minha {
+        background-color: hsla(120, 100%, 25%, 0.349);
+      }
+
+      .escrito_por {
+        position: absolute;
+        margin-right: 1rem;
+        margin-top: -6rem;
+        width: 200px;
+      }
+
+      .avatar {
+        position: absolute;
+        width: 4rem;
+        height:  4rem;
+        border-radius: 50%;
+        margin-right: 1rem;
+      }
+
+      .mensagem__texto {
+        margin-left: 4rem;
+      }
+
+      #formulario_chat {
+        border-radius: 1rem;
+        border: 1px solid grey;
+        padding: 1rem;
+        max-width: 512px;
+
+        
+      }
+
+      textarea {
+        display: block;
+        width: 100%;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat_content">
+      <div id="mensagens">
+        <div class="mensagem">
+          <img class="avatar" src="assets/avatar2.png" alt="Pedro Silva" />
+          <div class="escrito_por">Pedro Silva</div>
+          <div class="mensagem__texto">
+            <p>Olá, tudo bem?</p>
+          </div>
+          <div class="mensagem__hora">
+            <p>00:50</p>
+          </div>
+        </div>
+        <div class="mensagem mensagem_minha">
+          <img class="avatar" src="assets/avatar1.png" alt="" />
+          <div class="escrito_por">Eu</div>
+          <div class="mensagem__texto">
+            <p>Estou bem sim, e você?</p>
+          </div>
+          <div class="mensagem__hora">
+            <p>00:55</p>
+          </div>
+        </div>
+        <div class="mensagem">
+          <img class="avatar" src="assets/avatar2.png" alt="Pedro Silva" />
+          <div class="escrito_por">Pedro Silva</div>
+
+          <div class="mensagem__texto">
+            <p>
+              Vamos sair hoje? sabe conversar e Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Illum ducimus
+            </p>
+          </div>
+          <div class="mensagem__hora">
+            <p>01:01</p>
+          </div>
+        </div>
+        <div class="mensagem mensagem_minha">
+          <img class="avatar" src="assets/avatar1.png" alt="" />
+          <div class="escrito_por">Eu</div>
+          <div class="mensagem__texto">
+            <p>Criatura ......</p>
+          </div>
+          <div class="mensagem__hora">
+            <p>00:55</p>
+          </div>
+        </div>
+      </div>
+      <div id="formulario_chat">
+        <form action="">
+          <textarea
+            name="mensagem"
+            id="mensagem"
+            placeholder="Digite sua mensagem"></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+    <a style="bottom: 0; position: absolute" href="index.html">Voltar</a>
+  </body>
+</html>
