@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30vw;
+  margin-top: 40vh;
+}
+
+#div1 {
+  height: 200px;
+  width: 200px;
+  margin: 5px;
+  background: blue;
+  animation: rodar 1ms infinite;
+}
+
+#div2 {
+  height: 200px;
+  width: 200px;
+  margin: 5px;
+  background: red;
+  animation: rodar 1ms infinite;
+}
+
+#div3 {
+  height: 200px;
+  width: 200px;
+  margin: 5px;
+  background: green;
+  animation: rodar 1ms infinite;
+}
+
+#div4 {
+  height: 200px;
+  width: 200px;
+  margin: 5px;
+  background: yellow;
+  animation: rodar 1ms infinite;
+}
+
+@keyframes rodar {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

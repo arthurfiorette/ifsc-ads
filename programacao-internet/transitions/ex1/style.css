@@ -1,0 +1,59 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: red;
+}
+
+#div1 {
+  height: 200px;
+  width: 200px;
+  margin: 5px;
+  background: var(--primary-color);
+  transition: 5s;
+}
+
+#div1:hover {
+  background: blue;
+}
+
+#div2 {
+  height: 200px;
+  width: 200px;
+  margin: 5px;
+  background: var(--secondary-color);
+  transition: 5s;
+}
+
+#div2:hover {
+  background: darkred;
+}
+
+#div3 {
+  height: 200px;
+  width: 200px;
+  margin: 5px;
+  background: green;
+  transition: 5s;
+}
+
+#div3:hover {
+  background: darkgreen;
+}
+
+#div4 {
+  height: 200px;
+  width: 200px;
+  margin: 5px;
+  background: yellow;
+  transition: 5s;
+}
+
+#div4:hover {
+  background: darkgoldenrod;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30vw;
+  margin-top: 40vh;
+}
