@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .calculadora {
+        height: 800px;
+        width: 500px;
+        background-color: aliceblue;
+        border: 0.1rem solid black;
+      }
+
+      .painel {
+        border: 0.1rem solid black;
+        height: 80px;
+        margin: 1rem;
+        padding: 1rem;
+        font-size: large;
+        text-align: right;
+        font-size: 2rem;
+      }
+
+      .corpo {
+        height: 600px;
+        margin: 1rem;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 2fr 2fr 2fr 2fr;
+        grid-template-areas:
+          'soma subtracao multiplicacao divisao'
+          'sete oito nove igual'
+          'quatro cinco seis igual'
+          'um dois tres igual'
+          'zero ponto limpar igual';
+      }
+
+      .corpo > button {
+        border: 0.1rem solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+      }
+
+      .soma {
+        grid-area: soma;
+        background-color: lightgoldenrodyellow;
+      }
+
+      .subtracao {
+        grid-area: subtracao;
+        background-color: lightgoldenrodyellow;
+      }
+
+      .multiplicacao {
+        grid-area: multiplicacao;
+        background-color: lightgoldenrodyellow;
+      }
+
+      .divisao {
+        grid-area: divisao;
+        background-color: lightgoldenrodyellow;
+      }
+
+      .sete {
+        grid-area: sete;
+      }
+
+      .oito {
+        grid-area: oito;
+      }
+
+      .nove {
+        grid-area: nove;
+      }
+
+      .igual {
+        grid-area: igual;
+        background-color: lightblue;
+      }
+
+      .quatro {
+        grid-area: quatro;
+      }
+
+      .cinco {
+        grid-area: cinco;
+      }
+
+      .seis {
+        grid-area: seis;
+      }
+
+      .um {
+        grid-area: um;
+      }
+
+      .dois {
+        grid-area: dois;
+      }
+
+      .tres {
+        grid-area: tres;
+      }
+
+      .zero {
+        grid-area: zero;
+      }
+
+      .ponto {
+        grid-area: ponto;
+      }
+
+      .limpar {
+        grid-area: limpar;
+        background-color: #ffcc00;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculadora">
+      <div class="painel" math=""></div>
+      <div class="corpo">
+        <button class="soma">+</button>
+        <button class="subtracao">-</button>
+        <button class="multiplicacao">×</button>
+        <button class="divisao">÷</button>
+        <button class="sete">7</button>
+        <button class="oito">8</button>
+        <button class="nove">9</button>
+        <button class="igual">=</button>
+        <button class="quatro">4</button>
+        <button class="cinco">5</button>
+        <button class="seis">6</button>
+        <button class="um">1</button>
+        <button class="dois">2</button>
+        <button class="tres">3</button>
+        <button class="zero">0</button>
+        <button class="ponto">.</button>
+        <button class="limpar">C</button>
+      </div>
+    </div>
+
+    <script async defer>
+      let equalPressed = false;
+      const painel = document.querySelector('div.painel');
+      const corpo = document.querySelector('div.corpo');
+      const buttons = document.querySelectorAll('div.corpo > button');
+
+      for (const btn of buttons) {
+        btn.addEventListener('click', listener);
+      }
+
+      /** @param {MouseEvent} event */
+      function listener(event) {
+        event.preventDefault();
+
+        const btn = event.target;
+        const value = btn.textContent;
+
+        // Resets content if equal was pressed
+        if (equalPressed) {
+          painel.attributes.math.textContent = '';
+          painel.innerHTML = '';
+          equalPressed = false;
+        }
+
+        switch (value) {
+          case 'C':
+            painel.attributes.math.textContent = '';
+            painel.innerHTML = '';
+            break;
+          case '×':
+            painel.attributes.math.textContent += '*';
+            painel.innerHTML += value;
+            break;
+          case '÷':
+            painel.attributes.math.textContent += '/';
+            painel.innerHTML += value;
+            break;
+
+          case '=': {
+            console.log(painel.attributes.math.textContent);
+            const result = eval(painel.attributes.math.textContent) ?? '';
+            painel.attributes.math.textContent = result;
+            painel.innerHTML = result;
+            equalPressed = true;
+            break;
+          }
+          default:
+            painel.innerHTML += value;
+            painel.attributes.math.textContent += value;
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
