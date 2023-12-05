@@ -20,6 +20,15 @@ or contact me elsewhere.
 - [License (GPL-3.0)](https://arthurfiorette.github.io/ifsc-ads/LICENSE)
 - [IFES](https://www.ifsc.edu.br/web/campus-gaspar)
 
+### Sitemap
+
+- Programação para Internet
+  - [Cronometro](https://arthurfiorette.github.io/ifsc-ads/programacao-internet/cronometro/)
+  - [Notepad](https://arthurfiorette.github.io/ifsc-ads/programacao-internet/notepad/)
+  - [Calculadora](https://arthurfiorette.github.io/ifsc-ads/programacao-internet/calculadora/)
+  - [Transitions](https://arthurfiorette.github.io/ifsc-ads/programacao-internet/transitions/)
+  - [Html](https://arthurfiorette.github.io/ifsc-ads/programacao-internet/html/)
+
 ### Running
 
 ```sh
