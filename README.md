@@ -18,7 +18,7 @@ or contact me elsewhere.
 - [Github](https://github.com/arthurfiorette/ifsc-ads)
 - [Hosted site](https://arthurfiorette.github.io/ifsc-ads)
 - [License (GPL-3.0)](https://arthurfiorette.github.io/ifsc-ads/LICENSE)
-- [IFES](https://www.ifsc.edu.br/web/campus-gaspar)
+- [IFSC Gaspar](https://www.ifsc.edu.br/web/campus-gaspar)
 
 ### Sitemap
 
