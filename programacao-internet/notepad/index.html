@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bloco de Notas</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 5rem;
+        background-color: #282c34;
+        color: #fff;
+      }
+
+      #noteList {
+        max-width: 1024px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #555;
+        border-radius: 8px;
+        background-color: #444;
+      }
+
+      #noteList ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      #noteList li {
+        margin-bottom: 10px;
+        padding: 10px;
+        cursor: pointer;
+        border: 1px solid #555;
+        border-radius: 5px;
+        background-color: #555;
+        position: relative;
+      }
+
+      #noteList li:hover {
+        background-color: #666;
+      }
+
+      #noteList li button {
+        background-color: #dc3545;
+        border: none;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+      }
+
+      #noteText {
+        width: 100%;
+        height: 150px;
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid #555;
+        border-radius: 5px;
+        background-color: #555;
+        color: #fff;
+      }
+
+      button {
+        background-color: #28a745;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      form {
+        display: none;
+        margin-top: 10px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #61dafb;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="noteList">
+      <ul id="notes"></ul>
+      <form id="editForm">
+        <label for="editedNote">Editar Nota:</label>
+        <input type="text" id="editedNote" />
+        <button type="button" onclick="updateNote()">Atualizar</button>
+        <button type="button" onclick="cancelEdit()">Cancelar</button>
+      </form>
+      <textarea id="noteText" placeholder="Digite sua nota aqui..."></textarea>
+      <button onclick="saveNote()">Salvar Nota</button>
+      <button onclick="clearNotes()">Limpar Notas</button>
+    </div>
+
+    <script>
+      let selectedIndex = null;
+
+      function parseLocalStorageNotes() {
+        const storedNotes = localStorage.getItem('notes');
+        return storedNotes ? JSON.parse(storedNotes) : [];
+      }
+
+      function setLocalStorageNotes(notes) {
+        localStorage.setItem('notes', JSON.stringify(notes));
+      }
+
+      function updateNotesDisplay() {
+        const notes = parseLocalStorageNotes();
+        const notesList = document.getElementById('notes');
+
+        notesList.innerHTML = '';
+
+        notes.forEach((note, index) => {
+          const li = document.createElement('li');
+          li.textContent = note;
+          li.setAttribute('data-index', index);
+
+          li.addEventListener('click', () => {
+            showEditForm(index);
+          });
+
+          const deleteButton = document.createElement('button');
+          deleteButton.textContent = 'Deletar';
+
+          deleteButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            deleteNote(index);
+          });
+
+          li.appendChild(deleteButton);
+          notesList.appendChild(li);
+        });
+      }
+
+      function showEditForm(index) {
+        const notes = parseLocalStorageNotes();
+
+        document.getElementById('editedNote').value = notes[index];
+        document.getElementById('editForm').style.display = 'block';
+
+        selectedIndex = index;
+      }
+
+      function updateNote() {
+        const notes = parseLocalStorageNotes();
+
+        notes[selectedIndex] = document.getElementById('editedNote').value.trim();
+
+        setLocalStorageNotes(notes);
+        hideEditForm();
+        updateNotesDisplay();
+      }
+
+      function cancelEdit() {
+        hideEditForm();
+      }
+
+      function hideEditForm() {
+        document.getElementById('editForm').style.display = 'none';
+        selectedIndex = null;
+      }
+
+      function deleteNote(index) {
+        const notes = parseLocalStorageNotes();
+        notes.splice(index, 1);
+
+        setLocalStorageNotes(notes);
+        updateNotesDisplay();
+      }
+
+      function saveNote() {
+        const noteText = document.getElementById('noteText').value.trim();
+
+        if (noteText === '') {
+          alert('Digite uma nota antes de salvar.');
+          return;
+        }
+
+        const notes = parseLocalStorageNotes();
+        notes.push(noteText);
+        setLocalStorageNotes(notes);
+
+        document.getElementById('noteText').value = '';
+        updateNotesDisplay();
+      }
+
+      function clearNotes() {
+        if (confirm('Tem certeza de que deseja excluir todas as notas?')) {
+          localStorage.removeItem('notes');
+          updateNotesDisplay();
+        }
+      }
+
+      updateNotesDisplay();
+    </script>
+  </body>
+</html>
