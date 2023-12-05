@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cronômetro com Voltas e Milissegundos</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #050505;
+        color: #f5f5f5;
+        margin: 50px;
+      }
+
+      #display {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        transition: opacity 0.5s linear;
+      }
+
+      button {
+        font-size: 1.2rem;
+        margin: 1rem;
+        padding: 1rem;
+      }
+
+      #laps {
+        text-align: left;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="display">00 : 00 : 00 .000</h1>
+    <button onclick="startStop()">Iniciar/Parar</button>
+    <button onclick="reset()">Zerar</button>
+    <button onclick="recordLap()" id="laps-btn" disabled>Volta</button>
+    <div id="laps"></div>
+
+    <script>
+      let timer;
+      let running = false;
+      let start;
+      let milliseconds = 0;
+      let seconds = 0;
+      let minutes = 0;
+      let hours = 0;
+      let lapCounter = 1;
+
+      const HOUR_IN_MS = 3600000;
+      const MINUTE_IN_MS = 60000;
+      const SECOND_IN_MS = 1000;
+      const MINUTE_IN_HOUR = 60;
+      const SECOND_IN_HOUR = 3600;
+
+      const display = document.getElementById('display');
+      const lapsContainer = document.getElementById('laps');
+      const lapsBtn = document.getElementById('laps-btn');
+
+      function startStop() {
+        running = !running;
+
+        if (running) {
+          start ??= Date.now();
+          animate();
+          lapsBtn.removeAttribute('disabled');
+        } else {
+          lapsBtn.setAttribute('disabled', '');
+        }
+      }
+
+      function animate() {
+        if (running) {
+          updateDisplay();
+          window.requestAnimationFrame(animate);
+        }
+      }
+
+      function reset() {
+        running = false;
+        milliseconds = 0;
+        seconds = 0;
+        minutes = 0;
+        hours = 0;
+        start ??= Date.now();
+        lapCounter = 1;
+        lapsBtn.setAttribute('disabled', '');
+
+        updateDisplay();
+        lapsContainer.innerText = '';
+      }
+
+      function recordLap() {
+        const lapEntry = document.createElement('p');
+        lapEntry.textContent = `Volta ${lapCounter++} @ ${formattedTime()}`;
+        lapsContainer.appendChild(lapEntry);
+      }
+
+      function updateDisplay() {
+        display.innerText = formattedTime();
+
+        const now = Date.now();
+        const diff = now - start;
+
+        hours = Math.floor(diff / HOUR_IN_MS);
+
+        minutes = Math.floor(diff / MINUTE_IN_MS) - hours * MINUTE_IN_HOUR;
+
+        seconds =
+          Math.floor(diff / SECOND_IN_MS) -
+          minutes * MINUTE_IN_HOUR -
+          hours * SECOND_IN_HOUR;
+
+        milliseconds =
+          diff - seconds * SECOND_IN_MS - minutes * MINUTE_IN_MS - hours * HOUR_IN_MS;
+      }
+
+      function formattedTime() {
+        return (
+          String(hours).padStart(2, '0') +
+          ' : ' +
+          String(minutes).padStart(2, '0') +
+          ' : ' +
+          String(seconds).padStart(2, '0') +
+          ' .' +
+          String(milliseconds).padStart(3, '0')
+        );
+      }
+    </script>
+  </body>
+</html>
